@@ -25,6 +25,17 @@ nav{
     letter-spacing: 5px;
     font-size: 25px;
     margin-top: 15px;
+   
+}
+
+.home{
+    text-decoration: none;
+    color: white;
+    
+}
+
+.home:hover{
+    color: darkslategrey;
 }
 
 .nav-links{
@@ -37,7 +48,7 @@ nav{
 
 .nav-links a{
     color: white;
-    font-size: 45px;
+    font-size: 20px;
     text-transform: uppercase;
 }
 
@@ -75,14 +86,21 @@ nav{
 .dropdown-content a {
     padding: 10px 15px;
     display: block;
-    color: white;
+    color: ;
     text-decoration: none;
+    font-size: 20px;
 }
 .dropdown-content a:hover {
     background-color: #555;
+    color: whitesmoke;
 }
 .nav-links .dropdown:hover .dropdown-content {
     display: block;
+    
+}
+
+.dropbtn:hover{
+    color: darkgray;
 }
 
 
