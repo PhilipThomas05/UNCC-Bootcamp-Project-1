@@ -1,0 +1,91 @@
+/* General styles and resets */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(https://cdn.pixabay.com/photo/2017/10/02/19/52/mountain-2809977_1280.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Navigation styles */
+nav {
+    background-color: #2b26267e;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    
+}
+
+.logo {
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 25px;
+}
+
+.homepage {
+    text-decoration: none;
+    color:white;
+}
+
+.homepage:hover {
+    color: #38FFD4
+}
+
+.nav-links {
+    display: flex;
+    justify-content: end;
+    width: 40%;
+    list-style-type: none;
+}
+
+.nav-links li {
+    position: relative;
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: white;
+    font-size: 25px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color 0.3s; /* smooth transition for hover effect */
+}
+
+.nav-links a:hover {
+   color: #38FFD4 ; /* subtle hover effect */
+}
+
+/* Dropdown styles */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%; 
+    left: 0;
+    background-color: #444;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 0 0 10px 10px;
+}
+
+.dropdown-content a {
+    padding: 10px 15px;
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #808080;
+    
+}
+
+.nav-links .dropdown:hover .dropdown-content {
+    display: block;
+}
