@@ -1,7 +1,7 @@
 body{
-    background-image: url(https://blogs.microsoft.com/wp-content/uploads/prod/sites/154/2018/01/Woods_still.jpg);
+    background-image: url(https://lostinthecarolinas.com/wp-content/uploads/2021/04/Grandfather-Trail.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover; 
 }
 
 *{
@@ -19,13 +19,30 @@ body{
      background-color: rgba(0, 0, 0, 0.282); 
 }
 
+.about{
+    color: white;
+    font-size: 100px;
+    display: flex;
+    justify-content: center;
+    margin-top: 250px;
+    font-family: 'Cinzel', serif;     
+}
+
+.quote{
+    color: white;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    font-family: 'Cinzel', serif;
+}
+
 .logo{
     color: white;
     text-transform: uppercase;
     letter-spacing: 5px;
     font-size: 25px;
     margin-top: 15px;
-   
 }
 
 .home{
