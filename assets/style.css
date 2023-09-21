@@ -37,6 +37,16 @@ body{
     font-family: 'Cinzel', serif;
 }
 
+.finder{
+    color: white;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    margin-top: 1px;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+}
+
 .logo{
     color: white;
     text-transform: uppercase;
@@ -52,7 +62,7 @@ body{
 }
 
 .home:hover{
-    color: darkslategrey;
+color: #38ffd4; 
 }
 
 .nav-links{
@@ -87,7 +97,8 @@ body{
     transition: background-color 0.3s; /* smooth transition for hover effect */
 }
 .nav-links a:hover {
-    background-color: rgba(255, 255, 255, 0.1); /* subtle hover effect */
+    background-color: rgba(255, 255, 255, 0.1); subtle hover effect */
+    color:#38ffd4;
 }
 /* Dropdown styles */
 .dropdown-content {
@@ -103,21 +114,20 @@ body{
 .dropdown-content a {
     padding: 10px 15px;
     display: block;
-    color: ;
     text-decoration: none;
     font-size: 20px;
 }
 .dropdown-content a:hover {
     background-color: #555;
-    color: whitesmoke;
+    /* color: whitesmoke; */
+    color:#38ffd4;
 }
 .nav-links .dropdown:hover .dropdown-content {
     display: block;
-    
 }
 
 .dropbtn:hover{
-    color: darkgray;
+    color:#38ffd4;
 }
 
 
