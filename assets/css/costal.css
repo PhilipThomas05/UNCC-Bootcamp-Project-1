@@ -90,6 +90,7 @@ nav{
 }
 .dropdown-content a:hover {
     background-color: #808080;
+    color: white
 }
 .nav-links .dropdown:hover .dropdown-content {
     display: block;
