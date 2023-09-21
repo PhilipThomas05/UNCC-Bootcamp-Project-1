@@ -12,7 +12,7 @@
 
     <nav>
         <div class="logo">
-            <h4><a class="homebutton" href="../index.html">DIRTY SHOES</a></h4>
+            <h4><a class="homebutton" href="../index.html">HOME</a></h4>
         </div>
          <ul class="nav-links">
             <li class="dropdown">
@@ -26,26 +26,7 @@
         </ul>
     </nav> 
 
-<script>
-    fetch('https://api.openweathermap.org/data/2.5/weather?q=charlotte&appid=f17cdee71ab6fd1bb23dabba013e8338&units=imperial')
-        .then(res => {
-           return res.json();
-        })
-        .then(data => {
-            console.log(data);
-        });
-
-        const url = 'https://trailapi-trailapi.p.rapidapi.com/trails/explore/?lat=%3CREQUIRED%3E&lon=%3CREQUIRED%3E';
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '1f0b7157ccmsh7f554ec9f480740p158964jsn959136ae0ee2',
-		'X-RapidAPI-Host': 'trailapi-trailapi.p.rapidapi.com'
-	}
-};
-
-
-</script>
+<script src="../assets/js/costal.js"></script>
 
 </body>
 </html>
