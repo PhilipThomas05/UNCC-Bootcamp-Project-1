@@ -3,7 +3,6 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
-
 .mountains {
     text-decoration: none;
 color: white;
@@ -16,16 +15,14 @@ color: white;
     padding: 0px;
     box-sizing: border-box;
 }
-
 nav{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    min-height: 8vh; 
+    min-height: 8vh;
     font-family: 'Poppins', sans-serif;
     background-color: rgba(0, 0, 0, 0.282);
 }
-
 .logo{
     color: white;
     text-transform: uppercase;
@@ -33,7 +30,6 @@ nav{
     font-size: 25px;
     margin-top: 15px;
 }
-
 .nav-links{
     display: flex;
     justify-content: end;
@@ -41,13 +37,11 @@ nav{
     list-style-type: none;
     margin-top: 15px;
 }
-
 .nav-links a{
     color: white;
     font-size: 45px;
     text-transform: uppercase;
 }
-
 .nav-links {
     display: flex;
     justify-content: end;
@@ -93,11 +87,9 @@ nav{
 .nav-links .dropdown:hover .dropdown-content {
     display: block;
 }
-
 .dropbtn:hover{
     color: #38FFD4;
 }
-
 .list-group div {
     font-family: 'Poppins', sans-serif;
     background-color: rgba(0, 0, 0, 0.282);
