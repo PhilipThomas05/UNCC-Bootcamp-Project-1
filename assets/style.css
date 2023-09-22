@@ -1,7 +1,8 @@
 body{
     background-image: url(https://i.pinimg.com/originals/31/91/66/319166ce69e230d295e4fa04ffaff39c.jpg); 
     background-repeat: no-repeat;
-    background-size: contain;  
+    background-size: cover; 
+    height: 100vh;
 }
 
 *{
@@ -130,5 +131,28 @@ color: #38ffd4;
     color:#38ffd4;
 }
 
+@media (max-width: 825px) {
+    .dropdown-content {
+        left: -30px;/* Move to the left by 30 pixels */
+    }
+
+
+@media (max-width: 825px) { #window h1, #window h2, #window h3, #window h4, #window h5 {
+    font-size: 300%;
+} 
+}
+ 
+@media (max-width: 692px) { #window h1, #window h2, #window h3, #window h4, #window h5 {
+    font-size: 200%;
+} 
+}
+@media (max-width: 460px) { #window h1, #window h2, #window h3, #window h4, #window h5 {
+    font-size: 150%;
+} 
+}
+@media (max-width: 342px) { #window h1, #window h2, #window h3, #window h4, #window h5 {
+    font-size: 110%;
+} 
+}
 
 
