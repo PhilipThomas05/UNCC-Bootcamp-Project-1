@@ -1,8 +1,7 @@
-
 body{
-    background-image: url(https://i.pinimg.com/originals/31/91/66/319166ce69e230d295e4fa04ffaff39c.jpg);
+    background-image: url(https://i.pinimg.com/originals/31/91/66/319166ce69e230d295e4fa04ffaff39c.jpg); 
     background-repeat: no-repeat;
-    background-size: cover; 
+    background-size: contain;  
 }
 
 *{
@@ -23,10 +22,10 @@ body{
 .about{
     color: white;
     font-size: 100px;
-    display: flex;
     justify-content: center;
+    margin-left: 440px;
     margin-top: 250px;
-    font-family: 'Cinzel', serif;     
+    font-family: 'Cinzel', serif;    
 }
 
 .quote{
@@ -130,10 +129,6 @@ color: #38ffd4;
 .dropbtn:hover{
     color:#38ffd4;
 }
-
-
-
-
 
 
 
