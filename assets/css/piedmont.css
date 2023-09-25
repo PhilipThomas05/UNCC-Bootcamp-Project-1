@@ -92,6 +92,14 @@ nav {
     }
 }
 
+.homepage{
+    text-decoration: none;
+    color: white;
+}
+
+.homepage:hover {
+    color: #38ffd4;
+}
 
 .dropdown-content a {
     padding: 10px 15px;
@@ -122,7 +130,7 @@ nav {
 
 .list-group div {
     font-family: 'Poppins', sans-serif;
-    background-color: rgba(0, 0, 0, 0.651);
+    background-color: rgba(0, 0, 0, 0.767);
     color: white;
     margin-top: 23px;
     margin-left: 20px;
@@ -130,59 +138,9 @@ nav {
     margin-right: 20px;
 }
 
-.card-temp {
-    position: absolute;
-    left: 25px;
-    top: 140px;
-    margin: 10px;
-}
-
-.btn {
- width: 30%;
- margin-left: 34.5%;
- position: absolute;
- top: 200px;
- right: 300px;
-}
-
-.card-body {
-    position: absolute;
-    left: 5px;
-    top: 30px;
-    margin: 10px;
-}
-
-.card-text {
-    position: absolute;
-    left: 25px;
-    top: 102px;
-    margin: 10px;
-}
-
-.card {
-    width: 70%;
-    align-self: center;
-    padding: 10%;
-}
-
-.homepage{
-    text-decoration: none;
-    color: white;
-}
-
-.homepage:hover {
-    color: #38ffd4;
-}
-
-.list-group{
-    position: relative;
-}
-
 .thumbnail {
-    width: 25%;
-    height: 140px;
-    position: absolute;
-    right: 25px;
-    top: 50px;
-    margin: 10px;
+    width: 150px;
+    height: 150px;
+    margin-top: 1%;
+    margin-left: 1%;
 }
