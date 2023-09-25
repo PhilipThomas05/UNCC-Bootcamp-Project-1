@@ -2,7 +2,13 @@ body{
     background-image: url(https://wallpaperaccess.com/full/1696135.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    flex-wrap: wrap;
 }
+
+body:not(nav):not(ul){
+    backdrop-filter: brightness(60%);
+}
+
 .mountains {
     text-decoration: none;
 color: white;

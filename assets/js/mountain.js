@@ -1,46 +1,15 @@
-function updateCard(trail, index, weather) {
-    const pEl = document.getElementById('pEl');
-    const cardName = document.createElement('div');
-    const cardDifficulty = document.createElement('p');
-    const cardUrl = document.createElement('a');
-    const cardTemp = document.createElement('p');
-    cardName.classList.add('card-body');
-    cardDifficulty.classList.add('card-text');
-    cardUrl.classList.add('btn', 'btn-primary');
-    if (index >= 0 && trail) {
-        cardName.textContent = 'Trail: ' + trail.name;
-        cardDifficulty.textContent = 'Difficulty: ' + trail.difficulty;
-        cardUrl.textContent = 'Check Weather';
-        cardTemp.textContent = weather.main.temp;
-    } else {
-        cardName.textContent = 'Invalid Index or Data';
-        pEl.appendChild(cardName);
-    }
-    pEl.appendChild(cardName);
-    pEl.appendChild(cardDifficulty);
-    pEl.appendChild(cardUrl);
-    pEl.appendChild(cardTemp);
-}
+function weatherApi(city) {
+    const weatherApiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=f17cdee71ab6fd1bb23dabba013e8338&units=imperial';
 
-
-function weatherApi(city,trail,index) {
-    const weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=f17cdee71ab6fd1bb23dabba013e8338&units=imperial`;
-    fetch(weatherApiUrl)
+    return fetch(weatherApiUrl)
         .then((res) => res.json())
-        .then((data) => {
-            //cardUrl.href = 'https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=f17cdee71ab6fd1bb23dabba013e8338&units=imperial';
-            
-            console.log(data);
-            updateCard(trail,index,data);
-        })
-        .catch((error) => {
-            console.error('Error fetching weather data:', error);
-        });
+        .then((data) => data);
 }
+
 
 function trailApi() {
     const url =
-        'https://trailapi-trailapi.p.rapidapi.com/trails/explore/?lat=35.6009&lon=-82.554&per_page=2&radius=50';
+        'https://trailapi-trailapi.p.rapidapi.com/trails/explore/?lat=35.6009&lon=-82.554&per_page=60&radius=50';
     const options = {
         method: 'GET',
         headers: {
@@ -48,18 +17,56 @@ function trailApi() {
             'X-RapidAPI-Host': 'trailapi-trailapi.p.rapidapi.com',
         },
     };
-    fetch(url, options)
+
+    return fetch(url, options)
         .then((res) => res.json())
-        .then((data) => {
-            const filterRating = data.data.filter((item) => item.rating > 3.4);
-            filterRating.forEach((trail, index) => {
-                //updateCard(trail, index);
-                weatherApi(trail.city,trail,index)
-            });
-        })
-        .catch((error) => {
-            console.error('Error fetching trail data:', error);
-        });
+        .then((data) => data);
 }
 
-trailApi();
+
+function updateCard(trail, index) {
+    const pEl = document.getElementById('pEl');
+    const cardName = document.createElement('div');
+    const cardCity = document.createElement('h5');
+    const cardDifficulty = document.createElement('p');
+    const cardUrl = document.createElement('a');
+
+    cardName.classList.add('card-body');
+    cardCity.classList.add('card-title');
+    cardDifficulty.classList.add('card-text');
+    cardUrl.classList.add('btn', 'btn-primary');
+
+    if (index >= 0 && trail) {
+        cardName.textContent = 'Trail: ' + trail.name;
+        cardCity.textContent = 'City: ' + trail.city;
+        cardDifficulty.textContent = 'Difficulty: ' + trail.difficulty;
+        cardUrl.textContent = 'Check Weather';
+
+        weatherApi(trail.city)
+            .then((weatherData) => {
+                cardUrl.href = 'https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=f17cdee71ab6fd1bb23dabba013e8338&units=imperial';
+                pEl.appendChild(cardName);
+                pEl.appendChild(cardCity);
+                pEl.appendChild(cardDifficulty);
+                pEl.appendChild(cardUrl);
+            })
+            .catch((error) => {
+                console.error('Error fetching weather data:', error);
+            });
+    } else {
+        cardName.textContent = 'Invalid Index or Data';
+        pEl.appendChild(cardName);
+    }
+}
+
+
+trailApi()
+    .then((data) => {
+        const filterRating = data.data.filter((item) => item.rating > 3.4);
+        filterRating.forEach((trail, index) => {
+            updateCard(trail, index);
+        });
+    })
+    .catch((error) => {
+        console.error('Error fetching trail data:', error);
+    });
