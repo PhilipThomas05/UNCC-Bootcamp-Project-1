@@ -47,6 +47,7 @@ nav {
     justify-content: end;
     width: 40%;
     list-style-type: none;
+    margin-top: 20px;
 }
 
 .nav-links li {
@@ -150,4 +151,17 @@ nav {
     width: 70%;
     align-self: center;
     padding: 10%;
+}
+
+.dropbtn{
+    margin-top: 10px;
+}
+
+.homepage{
+    color: white;
+    text-decoration: none;
+}
+
+.homepage:hover{
+    color: #38ffd4;
 }

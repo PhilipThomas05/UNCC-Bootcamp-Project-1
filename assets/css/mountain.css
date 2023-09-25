@@ -47,6 +47,7 @@ nav {
     justify-content: end;
     width: 40%;
     list-style-type: none;
+    margin-top: 20px;
 }
 
 .nav-links li {
@@ -150,4 +151,13 @@ nav {
     width: 70%;
     align-self: center;
     padding: 10%;
+}
+
+.mountains{
+    text-decoration: none;
+    color: white;
+}
+
+.mountains:hover {
+    color: #38ffd4;
 }
