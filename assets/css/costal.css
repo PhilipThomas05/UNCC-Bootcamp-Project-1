@@ -9,7 +9,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     backdrop-filter: blur(3px) brightness(50%);
-
+    font-family: 'Poppins', sans-serif;
 }
 
 
