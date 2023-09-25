@@ -121,10 +121,33 @@ nav {
 
 .list-group div {
     font-family: 'Poppins', sans-serif;
-    background-color: rgba(0, 0, 0, 0.282);
+    background-color: rgba(0, 0, 0, 0.651);
     color: white;
     margin-top: 23px;
     margin-left: 20px;
     list-style: none;
     margin-right: 20px;
+}
+
+.card-temp {
+    text-align: center;
+}
+
+.btn {
+ width: 30%;
+ margin-left: 34.5%;
+}
+
+.card-body {
+    text-align: center;
+}
+
+.card-text {
+    text-align: center;
+}
+
+.card {
+    width: 70%;
+    align-self: center;
+    padding: 10%;
 }
