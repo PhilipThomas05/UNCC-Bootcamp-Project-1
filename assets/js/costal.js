@@ -1,44 +1,51 @@
-function updateCard(trail, index, weather) {
-    const pEl = document.getElementById('pEl');
-    const cardBody = document.createElement('div')
+function createCard(trail, weather) {
+    const cardBody = document.createElement('div');
+    cardBody.classList.add('card');
+
+    const thumbnail = document.createElement('img');
+    thumbnail.classList.add('thumbnail');
+    thumbnail.src = trail.thumbnail;
+
     const cardName = document.createElement('h2');
-    const cardDifficulty = document.createElement('p');
-    const cardUrl = document.createElement('a');
-    const cardTemp = document.createElement('h3');
-    cardBody.classList.add('card')
-    cardBody.setAttribute('id', 'zoom')
-    const cel = document.getElementById('zoom')
     cardName.classList.add('card-body');
+    cardName.textContent = 'Trail: ' + trail.name;
+
+    const cardDifficulty = document.createElement('p');
     cardDifficulty.classList.add('card-text');
+    cardDifficulty.textContent = 'Difficulty: ' + trail.difficulty;
+
+    const cardTemp = document.createElement('h3');
+    cardTemp.classList.add('card-temp');
+    cardTemp.textContent = weather.main.temp + ' °F';
+
+    const cardUrl = document.createElement('a');
     cardUrl.classList.add('btn', 'btn-primary');
-    cardTemp.classList.add('card-temp')
-    if (index >= 0 && trail) {
-        cardName.textContent = 'Trail: ' + trail.name;
-        cardDifficulty.textContent = 'Difficulty: ' + trail.difficulty;
-        cardUrl.textContent = 'Trail Website';
-        cardUrl.href = trail.url
-        cardTemp.textContent = weather.main.temp + ' °F';
-    } else {
-        cardName.textContent = 'Invalid Index or Data';
-        pEl.appendChild(cardName);
-    }
-    pEl.appendChild(cardBody)
-    cel.appendChild(cardName);
-    cel.appendChild(cardTemp);
-    cel.appendChild(cardDifficulty);
-    cel.appendChild(cardUrl);
+    cardUrl.textContent = 'Trail Website';
+    cardUrl.href = trail.url;
+
+    cardBody.appendChild(thumbnail);
+    cardBody.appendChild(cardName);
+    cardBody.appendChild(cardDifficulty);
+    cardBody.appendChild(cardTemp);
+    cardBody.appendChild(cardUrl);
+
+    return cardBody;
 }
 
+function appendCardToPage(card) {
+    const pEl = document.getElementById('pEl');
+    pEl.appendChild(card);
+}
 
-function weatherApi(city,trail,index) {
+function weatherApi(city, trail, index) {
     const weatherApiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=f17cdee71ab6fd1bb23dabba013e8338&units=imperial`;
+
     fetch(weatherApiUrl)
         .then((res) => res.json())
         .then((data) => {
-            // cardUrl.href = 'https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=f17cdee71ab6fd1bb23dabba013e8338&units=imperial';
-            
-            console.log(data);
-            updateCard(trail,index,data);
+            // Create the card and append it to the page
+            const card = createCard(trail, data);
+            appendCardToPage(card);
         })
         .catch((error) => {
             console.error('Error fetching weather data:', error);
@@ -47,7 +54,8 @@ function weatherApi(city,trail,index) {
 
 function trailApi() {
     const url =
-        'https://trailapi-trailapi.p.rapidapi.com/trails/explore/?lat=35.9985&lon=-76.9461&per_page=11&radius=50';
+        'https://trailapi-trailapi.p.rapidapi.com/trails/explore/?lat=35.9985&lon=-76.9461&per_page=21&radius=50';
+
     const options = {
         method: 'GET',
         headers: {
@@ -55,19 +63,19 @@ function trailApi() {
             'X-RapidAPI-Host': 'trailapi-trailapi.p.rapidapi.com',
         },
     };
+
     fetch(url, options)
         .then((res) => res.json())
         .then((data) => {
             const filterRating = data.data.filter((item) => item.rating > 3.4);
             filterRating.forEach((trail, index) => {
-                //updateCard(trail, index);
-                weatherApi(trail.city,trail,index)
+                weatherApi(trail.city, trail, index);
             });
         })
         .catch((error) => {
             console.error('Error fetching trail data:', error);
         });
-    
 }
 
+// Call the trailApi function to start the process
 trailApi();
