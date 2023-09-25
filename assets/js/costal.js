@@ -1,25 +1,32 @@
 function updateCard(trail, index, weather) {
     const pEl = document.getElementById('pEl');
-    const cardName = document.createElement('div');
+    const cardBody = document.createElement('div')
+    const cardName = document.createElement('h2');
     const cardDifficulty = document.createElement('p');
     const cardUrl = document.createElement('a');
-    const cardTemp = document.createElement('p');
+    const cardTemp = document.createElement('h3');
+    cardBody.classList.add('card')
+    cardBody.setAttribute('id', 'zoom')
+    const cel = document.getElementById('zoom')
     cardName.classList.add('card-body');
     cardDifficulty.classList.add('card-text');
     cardUrl.classList.add('btn', 'btn-primary');
+    cardTemp.classList.add('card-temp')
     if (index >= 0 && trail) {
         cardName.textContent = 'Trail: ' + trail.name;
         cardDifficulty.textContent = 'Difficulty: ' + trail.difficulty;
-        cardUrl.textContent = 'Check Weather';
-        cardTemp.textContent = weather.main.temp;
+        cardUrl.textContent = 'Trail Website';
+        cardUrl.href = trail.url
+        cardTemp.textContent = weather.main.temp + ' °F';
     } else {
         cardName.textContent = 'Invalid Index or Data';
         pEl.appendChild(cardName);
     }
-    pEl.appendChild(cardName);
-    pEl.appendChild(cardDifficulty);
-    pEl.appendChild(cardUrl);
-    pEl.appendChild(cardTemp);
+    pEl.appendChild(cardBody)
+    cel.appendChild(cardName);
+    cel.appendChild(cardTemp);
+    cel.appendChild(cardDifficulty);
+    cel.appendChild(cardUrl);
 }
 
 
@@ -28,7 +35,7 @@ function weatherApi(city,trail,index) {
     fetch(weatherApiUrl)
         .then((res) => res.json())
         .then((data) => {
-            //cardUrl.href = 'https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=f17cdee71ab6fd1bb23dabba013e8338&units=imperial';
+            // cardUrl.href = 'https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=f17cdee71ab6fd1bb23dabba013e8338&units=imperial';
             
             console.log(data);
             updateCard(trail,index,data);
@@ -40,7 +47,7 @@ function weatherApi(city,trail,index) {
 
 function trailApi() {
     const url =
-        'https://trailapi-trailapi.p.rapidapi.com/trails/explore/?lat=35.6009&lon=-82.554&per_page=2&radius=50';
+        'https://trailapi-trailapi.p.rapidapi.com/trails/explore/?lat=35.6009&lon=-82.554&per_page=11&radius=50';
     const options = {
         method: 'GET',
         headers: {
@@ -60,6 +67,7 @@ function trailApi() {
         .catch((error) => {
             console.error('Error fetching trail data:', error);
         });
+    
 }
 
 trailApi();
