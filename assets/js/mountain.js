@@ -2,19 +2,28 @@ function createCard(trail, weather) {
     const cardBody = document.createElement('div');
     cardBody.classList.add('card');
 
+    const thumbnail = document.createElement('img');
+    thumbnail.classList.add('thumbnail');
+    thumbnail.src = trail.thumbnail;
+
     const cardName = document.createElement('h2');
+    cardName.classList.add('card-body');
     cardName.textContent = 'Trail: ' + trail.name;
 
     const cardDifficulty = document.createElement('p');
+    cardDifficulty.classList.add('card-text');
     cardDifficulty.textContent = 'Difficulty: ' + trail.difficulty;
 
     const cardTemp = document.createElement('h3');
+    cardTemp.classList.add('card-temp');
     cardTemp.textContent = weather.main.temp + ' °F';
 
     const cardUrl = document.createElement('a');
+    cardUrl.classList.add('btn', 'btn-primary');
     cardUrl.textContent = 'Trail Website';
     cardUrl.href = trail.url;
 
+    cardBody.appendChild(thumbnail);
     cardBody.appendChild(cardName);
     cardBody.appendChild(cardDifficulty);
     cardBody.appendChild(cardTemp);
@@ -45,7 +54,7 @@ function weatherApi(city, trail, index) {
 
 function trailApi() {
     const url =
-        'https://trailapi-trailapi.p.rapidapi.com/trails/explore/?lat=35.6009&lon=-82.554&per_page=11&radius=50';
+        'https://trailapi-trailapi.p.rapidapi.com/trails/explore/?lat=35.6009&lon=-82.554&per_page=20&radius=50';
 
     const options = {
         method: 'GET',
