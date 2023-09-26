@@ -54,7 +54,7 @@ function weatherApi(city, trail, index) {
 
 function trailApi() {
     const url =
-        'https://trailapi-trailapi.p.rapidapi.com/trails/explore/?lat=35.9985&lon=-76.9461&per_page=21&radius=50';
+        'https://trailapi-trailapi.p.rapidapi.com/trails/explore/?lat=35.1085&lon=-77.0441&per_page=24&radius=114';
 
     const options = {
         method: 'GET',
